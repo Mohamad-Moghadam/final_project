@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.models import User
-from rest_framework.generics import CreateAPIView, RetrieveAPIView, ListAPIView
+from rest_framework.generics import CreateAPIView, RetrieveAPIView, ListAPIView, DestroyAPIView
 from rest_framework.permissions import BasePermission, AllowAny
 from user.serializers import UserSerializer
+from user.models import HeadMaster
 
 class IsSuperUser(BasePermission):
     def has_permission(self, request, view):
@@ -29,6 +30,13 @@ class ListHeadmasters(ListAPIView):
     permission_classes= [IsSuperUser]
     queryset= User.objects.filter(is_superuser= True)
     serializer_class= UserSerializer
+
+
+class DeleteHeadmaster(DestroyAPIView):
+    permission_classes= [IsSuperUser]
+    queryset= User.objects.filter(is_superuser= True)
+    serializer_class= UserSerializer
+
 
 class NewTech(CreateAPIView):
     pass
