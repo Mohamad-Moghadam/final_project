@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.models import User
-from rest_framework.generics import CreateAPIView, RetrieveAPIView
+from rest_framework.generics import CreateAPIView, RetrieveAPIView, ListAPIView
 from rest_framework.permissions import BasePermission, AllowAny
 from user.serializers import UserSerializer
 
@@ -25,7 +25,7 @@ class SignUp(CreateAPIView):
     queryset= User
     serializer_class= UserSerializer
 
-class ListHeadmasters(RetrieveAPIView):
+class ListHeadmasters(ListAPIView):
     permission_classes= [IsSuperUser]
     queryset= User.objects.filter(is_superuser= True)
     serializer_class= UserSerializer
