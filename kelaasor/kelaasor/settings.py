@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from dotenv import load_dotenv
 from pathlib import Path
 import os
+from datetime import timedelta
+
 
 load_dotenv()
 
@@ -79,7 +81,21 @@ WSGI_APPLICATION = 'kelaasor.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = os.getenv('DATABASES')
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': 'localhost',
+        'PORT': '5432'
+    }
+}
+
+SIMPLE_JWT= {
+    "ACCESS_TOKEN_LIFETIME": timedelta(days=30),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=45),
+}
 
 
 # Password validation
@@ -122,3 +138,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
