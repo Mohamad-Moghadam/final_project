@@ -1,5 +1,5 @@
 from django.urls import path
-from user.views import NewHeadmaster, ListHeadmasters, DeleteHeadmaster
+from user.views import NewHeadmaster, ListHeadmasters, DeleteHeadmaster, RetrieveHeadmaster
 from rest_framework_simplejwt.views import TokenObtainPairView
 
 urlpatterns = [
@@ -7,4 +7,5 @@ urlpatterns = [
     path('new-headmaster', NewHeadmaster.as_view()),
     path('ls-headmasters', ListHeadmasters.as_view()),
     path('del-headmaster/<int:pk>', DeleteHeadmaster.as_view()),
+    path('retrieve-headmaster/<int:pk>', RetrieveHeadmaster.as_view()),
 ]

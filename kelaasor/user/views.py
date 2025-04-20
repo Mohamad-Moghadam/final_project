@@ -37,6 +37,9 @@ class DeleteHeadmaster(DestroyAPIView):
     queryset= User.objects.filter(is_superuser= True)
     serializer_class= UserSerializer
 
-
+class RetrieveHeadmaster(RetrieveAPIView):
+    permission_classes= [IsSuperUser]
+    queryset= User.objects.filter(is_superuser= True)
+    serializer_class= UserSerializer
 class NewTech(CreateAPIView):
     pass
