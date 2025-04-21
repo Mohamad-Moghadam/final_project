@@ -61,8 +61,13 @@ class NewTech(CreateAPIView):
         user.save()
     def __str__(self):
         return f"{self.user}"
-    
+
 class DelTech(DestroyAPIView):
     permission_classes= [IsSuperUser]
     queryset= User.objects.filter(is_staff= True)
+    serializer_class= UserSerializer
+
+class LsTech(ListAPIView):
+    permission_classes= [IsSuperUser]
+    queryset= User.objects.filter(is_staff= True, is_superuser= False)
     serializer_class= UserSerializer
