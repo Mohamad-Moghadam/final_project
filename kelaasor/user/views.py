@@ -1,9 +1,10 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.models import User
 from rest_framework.generics import CreateAPIView, RetrieveAPIView, ListAPIView, DestroyAPIView
-from rest_framework.permissions import BasePermission, AllowAny
+from rest_framework.permissions import BasePermission, AllowAny, IsAuthenticated
 from user.serializers import UserSerializer
 from user.models import HeadMaster
+from rest_framework.views import APIView
 
 class IsSuperUser(BasePermission):
     def has_permission(self, request, view):
@@ -71,3 +72,14 @@ class LsTech(ListAPIView):
     permission_classes= [IsSuperUser]
     queryset= User.objects.filter(is_staff= True, is_superuser= False)
     serializer_class= UserSerializer
+
+class NewUser(CreateAPIView):
+    permission_classes= [AllowAny]
+    queryset= User.objects.all()
+    serializer_class= UserSerializer
+
+class LogIn(APIView):
+    permission_classes= [IsAuthenticated]
+
+    def post(self, request):
+        return render(request, 'user_panel/user_panel.html', {'user': request.user})
