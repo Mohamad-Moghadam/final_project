@@ -13,7 +13,7 @@ class UserConfig(AppConfig):
 
 
         try:
-            Group.objects.get_or_create(name='HeadMaster')
+            Group.objects.get_or_create(name='Headmaster')
             Group.objects.get_or_create(name='Technicians')
 
         except OperationalError as e:
