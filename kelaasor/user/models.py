@@ -1,7 +1,7 @@
 from django.contrib.auth.models import AbstractUser, Permission, Group
 from django.db import models
 
-class HeadMaster(AbstractUser):
+"""class HeadMaster(AbstractUser):
 
     groups = models.ManyToManyField(
         Group,
@@ -48,4 +48,4 @@ class Technicians(AbstractUser):
     def has_perm(self, perm, obj= None):
         if perm in ['add_technician','change_technician','delete_technician']:
             return self.groups.filter(name='Technician').exists()
-        return False
+        return False"""
