@@ -1,6 +1,5 @@
 from django.contrib.auth.models import AbstractUser, Permission, Group
 from django.db import models
-from user.views import SignUp, NewUser, LogIn
 
 class HeadMaster(AbstractUser):
 
