@@ -3,14 +3,13 @@ from django.contrib.auth.models import User, Group
 from rest_framework.generics import CreateAPIView, RetrieveAPIView, ListAPIView, DestroyAPIView
 from rest_framework.permissions import BasePermission, AllowAny, IsAuthenticated
 from user.serializers import UserSerializer
-from user.models import HeadMaster, Technicians
 from rest_framework.views import APIView
 from user.permissions import IsHeadmaster, IsTechnician
 
 
 class NewHeadmaster(CreateAPIView):
     permission_classes= [IsHeadmaster]
-    queryset= HeadMaster.objects.all()
+    queryset= User.objects.all()
     serializer_class= UserSerializer
     def perform_create(self, serializer):
         user= serializer.save()
@@ -27,23 +26,23 @@ class SignUp(CreateAPIView):
 
 class ListHeadmasters(ListAPIView):
     permission_classes= [IsHeadmaster]
-    queryset= HeadMaster.objects.filter(is_superuser= True)
+    queryset= User.objects.filter(is_superuser= True)
     serializer_class= UserSerializer
 
 
 class DeleteHeadmaster(DestroyAPIView):
     permission_classes= [IsHeadmaster]
-    queryset= HeadMaster.objects.filter(is_superuser= True)
+    queryset= User.objects.filter(is_superuser= True)
     serializer_class= UserSerializer
 
 class RetrieveHeadmaster(RetrieveAPIView):
     permission_classes= [IsHeadmaster]
-    queryset= HeadMaster.objects.filter(is_superuser= True)
+    queryset= User.objects.filter(is_superuser= True)
     serializer_class= UserSerializer
 
 class NewTech(CreateAPIView):
     permission_classes= [IsHeadmaster]
-    queryset= Technicians.objects.all()
+    queryset= User.objects.all()
     serializer_class= UserSerializer
 
     def perform_create(self, serializer):
@@ -55,12 +54,12 @@ class NewTech(CreateAPIView):
 
 class DelTech(DestroyAPIView):
     permission_classes= [IsHeadmaster]
-    queryset= Technicians.objects.filter(is_staff= True)
+    queryset= User.objects.filter(is_staff= True)
     serializer_class= UserSerializer
 
 class LsTech(ListAPIView):
     permission_classes= [IsHeadmaster]
-    queryset= Technicians.objects.filter(is_staff= True, is_superuser= False)
+    queryset= User.objects.filter(is_staff= True, is_superuser= False)
     serializer_class= UserSerializer
 
 class NewUser(CreateAPIView):
