@@ -1,22 +1,19 @@
 from django.contrib.auth.models import AbstractUser, Permission, Group
 from django.db import models
+from user.views import SignUp, NewUser, LogIn
 
 class HeadMaster(AbstractUser):
 
     groups = models.ManyToManyField(
         Group,
         related_name='headmaster_users',
-        blank=True,
         help_text='The groups this user belongs to.',
-        related_query_name='headmaster_user'
     )
 
     user_permissions = models.ManyToManyField(
         Permission,
         related_name='headmaster_user_permissions',
-        blank=True,
         help_text='Specific permissions for this user.',
-        related_query_name='headmaster_user'
     )
     class Meta:
         verbose_name = 'HeadMaster'
@@ -30,3 +27,26 @@ class HeadMaster(AbstractUser):
     
     def has_module_perms(self, app_label):
         return True
+
+
+class Technicians(AbstractUser):
+
+    groups= models.ManyToManyField(
+        Group,
+        related_name='technician_users',
+        help_text='The groups this user belongs to.',
+    )
+
+    user_permissions = models.ManyToManyField(
+        Permission,
+        related_name='technician_user_permissions',
+        help_text='Specific permissions for this user.',
+    )
+    class Meta:
+        verbose_name= 'Technician'
+        verbose_name_plural= 'Technicians'
+
+    def has_perm(self, perm, obj= None):
+        if perm in ['add_technician','change_technician','delete_technician']:
+            return self.groups.filter(name='Technician').exists()
+        return False
