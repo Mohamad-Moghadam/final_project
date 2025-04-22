@@ -1,12 +1,12 @@
 from rest_framework.permissions import BasePermission
-from user.models import HeadMaster, Technicians
+from django.contrib.auth.models import Group
 
 
 class IsHeadmaster(BasePermission):
     def has_permission(self, request, view):
-        return isinstance(request.user, HeadMaster)
+        return request.user.groups.filter(name= "Headmaster").exists()
 
 
 class IsTechnician(BasePermission):
     def has_permission(self, request, view):
-        return isinstance(request.user, Technicians)
+        return request.user.groups.filter(name= "Technician").exists()
