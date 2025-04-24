@@ -76,7 +76,7 @@ class LogIn(APIView):
     def post(self, request):
         try:
             api= KavenegarAPI(settings.KAVENEGAR_API_KEY)
-            params= {'sender': '2000660110', 'receptor': request.user.username, 'message' :'.وب سرویس پیام کوتاه کاوه نگار' }
+            params= {'sender': '2000660110', 'receptor': request.user.username, 'message' :'به کلاسور خوش آمدید!' }
             api.sms_send(params)
         except APIException as e:
             return HttpResponse(f"API Exception: {e}")
