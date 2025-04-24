@@ -7,6 +7,7 @@ from rest_framework.views import APIView
 from user.permissions import IsHeadmaster, IsTechnician
 from kavenegar import *
 from django.conf import settings
+from django.http import HttpResponse
 
 
 class NewHeadmaster(CreateAPIView):
@@ -20,11 +21,6 @@ class NewHeadmaster(CreateAPIView):
         headmaster_group= Group.objects.get(name= 'HeadMaster')
         user.groups.add(headmaster_group)
         user.save()
-
-class SignUp(CreateAPIView):
-    permission_classes= [AllowAny]
-    queryset= User.objects.all()
-    serializer_class= UserSerializer
 
 class ListHeadmasters(ListAPIView):
     permission_classes= [IsHeadmaster]
@@ -69,6 +65,11 @@ class NewUser(CreateAPIView):
     queryset= User.objects.all()
     serializer_class= UserSerializer
 
+    def perform_create(self, serializer):
+        user= serializer.save()
+        user.is_active= True
+        user.save()
+
 class LogIn(APIView):
     permission_classes= [IsAuthenticated]
 
@@ -78,7 +79,7 @@ class LogIn(APIView):
             params= {'sender': '2000660110', 'receptor': request.user.username, 'message' :'.وب سرویس پیام کوتاه کاوه نگار' }
             api.sms_send(params)
         except APIException as e:
-            return f"API Exception: {e}"
+            return HttpResponse(f"API Exception: {e}")
 
 
         return render(request, 'user_panel/user_panel.html', {'user': request.user})
