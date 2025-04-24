@@ -5,6 +5,8 @@ from rest_framework.permissions import BasePermission, AllowAny, IsAuthenticated
 from user.serializers import UserSerializer
 from rest_framework.views import APIView
 from user.permissions import IsHeadmaster, IsTechnician
+from kavenegar import *
+from django.conf import settings
 
 
 class NewHeadmaster(CreateAPIView):
@@ -68,7 +70,15 @@ class NewUser(CreateAPIView):
     serializer_class= UserSerializer
 
 class LogIn(APIView):
-    permission_classes= [IsAuthenticated, IsTechnician]
+    permission_classes= [IsAuthenticated]
 
     def post(self, request):
+        try:
+            api= KavenegarAPI(settings.KAVENEGAR_API_KEY)
+            params= {'sender': '2000660110', 'receptor': request.user.username, 'message' :'.وب سرویس پیام کوتاه کاوه نگار' }
+            api.sms_send(params)
+        except APIException as e:
+            return f"API Exception: {e}"
+
+
         return render(request, 'user_panel/user_panel.html', {'user': request.user})
