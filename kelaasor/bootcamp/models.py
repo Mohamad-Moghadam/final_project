@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.gis.db import models as gis_models
+from django.contrib.gis.geos import Point
 
 class BootCamps(models.Model):
     BOOTCAMPS= ['Back-End', 'Front-End', 'Full-Stack', 'Social Media', 'Product Management', 'Data Science', 'Cyber Security', 'UI/UX', 'Mobile Development', 'Game Development']
@@ -11,7 +12,7 @@ class BootCamps(models.Model):
     starting_date= models.DateField(blank= True, null= True)
     ending_date= models.DateField(blank= True, null= True)
     created_at= models.DateTimeField(auto_now_add= True)
-    location= gis_models.PointField(default= '35.69967769328554,51.31804375220537')
+    location= gis_models.PointField(default= Point(35.69967769328554,51.31804375220537))
     class Meta:
         verbose_name= 'Bootcamp'
         verbose_name_plural= 'Bootcamps'
