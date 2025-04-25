@@ -1,3 +1,5 @@
 from django.contrib import admin
+from bootcamp.models import BootCamps
 
-# Register your models here.
+
+admin.site.register(BootCamps)
