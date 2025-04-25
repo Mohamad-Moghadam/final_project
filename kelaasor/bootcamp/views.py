@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework.generics import ListAPIView, CreateAPIView, DestroyAPIView
+from rest_framework.generics import ListAPIView, CreateAPIView, DestroyAPIView, UpdateAPIView
 from rest_framework.permissions import AllowAny
 from bootcamp.models import BootCamps
 from bootcamp.serializers import BootcampSerializer
@@ -17,6 +17,12 @@ class NewBootcamp(CreateAPIView):
     serializer_class= BootcampSerializer
 
 class DelBootcamp(DestroyAPIView):
+    permission_classes= [IsHeadmaster]
+    queryset= BootCamps.objects.all()
+    serializer_class= BootcampSerializer
+
+
+class EditBootcamp(UpdateAPIView):
     permission_classes= [IsHeadmaster]
     queryset= BootCamps.objects.all()
     serializer_class= BootcampSerializer
