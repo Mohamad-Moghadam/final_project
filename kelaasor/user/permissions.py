@@ -1,5 +1,5 @@
 from rest_framework.permissions import BasePermission
-from django.contrib.auth.models import Group
+from django.contrib.auth.models import Group, Permission
 
 
 class IsHeadmaster(BasePermission):
@@ -9,4 +9,4 @@ class IsHeadmaster(BasePermission):
 
 class IsTechnician(BasePermission):
     def has_permission(self, request, view):
-        return request.user.groups.filter(name= "Technician").exists()
+        return request.user.groups.filter(name= "Technicians").exists()

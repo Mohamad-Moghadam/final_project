@@ -21,7 +21,6 @@ class DelBootcamp(DestroyAPIView):
     queryset= BootCamps.objects.all()
     serializer_class= BootcampSerializer
 
-
 class EditBootcamp(UpdateAPIView):
     permission_classes= [IsHeadmaster]
     queryset= BootCamps.objects.all()

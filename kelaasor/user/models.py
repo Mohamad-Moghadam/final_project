@@ -1,6 +1,18 @@
 from django.contrib.auth.models import AbstractUser, Permission, Group
 from django.db import models
 
+
+class DummyPermission(models.Model):
+    class Meta:
+        permissions= [("can_add_headmaster", "Can add headmaster"),
+            ("can_list_headmasters", "Can list headmasters"),
+            ("can_delete_headmaster", "Can delete headmaster"),
+            ("can_retrieve_headmaster", "Can retrieve headmaster"),
+            ("can_add_technician", "Can add technician"),
+            ("can_list_technicians", "Can list technicians"),
+            ("can_delete_technician", "Can delete technician"),
+            ("can_retrieve_technician", "Can retrieve technician"),]
+
 """class HeadMaster(AbstractUser):
 
     groups = models.ManyToManyField(
