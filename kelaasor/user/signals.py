@@ -1,4 +1,4 @@
-from django.contrib.auth.models import Group
+from django.contrib.auth.models import Group, Permission
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.conf import settings
@@ -16,5 +16,10 @@ def assign_user_to_groups(sender, instance, created, **kwargs):
 
     elif instance.is_staff and not instance.is_superuser:
         group, _ = Group.objects.get_or_create(name='Technicians')
+
+        if not group.permissions.filter(codename='add_ticket').exists():
+            add_ticket_permission = Permission.objects.get(codename='add_ticket')
+            view_ticket_permission = Permission.objects.get(codename='view_ticket')
+            group.permissions.add(add_ticket_permission, view_ticket_permission)
+
         instance.groups.add(group)
-        instance.save()
