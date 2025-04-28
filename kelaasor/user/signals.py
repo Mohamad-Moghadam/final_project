@@ -11,7 +11,8 @@ def assign_user_to_groups(sender, instance, created, **kwargs):
 
     if instance.is_superuser:
         group, _ = Group.objects.get_or_create(name='Headmaster')
-        custom_permissions= Permission.objects.filter(codename__in= ["can_add_headmaster", "can_list_headmasters", "can_delete_headmaster", "can_retrieve_headmaster", "can_add_technician", "can_list_technicians", "can_delete_technician", "can_retrieve_technician"])
+        custom_permissions= Permission.objects.filter(codename__in= ["can_add_headmaster", "can_list_headmasters", "can_delete_headmaster", "can_retrieve_headmaster", "can_add_technician", "can_list_technicians", "can_delete_technician", "can_retrieve_technician",
+        "add_bootcamp", "view_bootcamp", "delete_bootcamp", "change_bootcamp", "add_ticket", "view_ticket", "delete_ticket", "change_ticket"])
 
         if not group.permissions.filter(codename='can_add_headmaster').exists():
             group.permissions.add(*custom_permissions)
