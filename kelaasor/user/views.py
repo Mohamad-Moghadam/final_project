@@ -18,7 +18,7 @@ class NewHeadmaster(CreateAPIView):
         user= serializer.save()
         user.is_superuser= True
         user.is_staff= True
-        headmaster_group= Group.objects.get(name= 'HeadMaster')
+        headmaster_group= Group.objects.get(name= 'Headmaster')
         user.groups.add(headmaster_group)
         user.save()
 

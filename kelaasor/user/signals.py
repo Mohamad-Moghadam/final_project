@@ -13,7 +13,7 @@ def assign_user_to_groups(sender, instance, created, **kwargs):
         group, _ = Group.objects.get_or_create(name='Headmaster')
         custom_permissions= Permission.objects.filter(codename__in= ["can_add_headmaster", "can_list_headmasters", "can_delete_headmaster", "can_retrieve_headmaster", "can_add_technician", "can_list_technicians", "can_delete_technician", "can_retrieve_technician"])
 
-        if not group.permissions.filter(codename='add_headmaster').exists():
+        if not group.permissions.filter(codename='can_add_headmaster').exists():
             group.permissions.add(*custom_permissions)
 
         instance.groups.add(group)
