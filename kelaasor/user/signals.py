@@ -14,17 +14,19 @@ def assign_user_to_groups(sender, instance, created, **kwargs):
         custom_permissions= Permission.objects.filter(codename__in= ["can_add_headmaster", "can_list_headmasters", "can_delete_headmaster", "can_retrieve_headmaster", "can_add_technician", "can_list_technicians", "can_delete_technician", "can_retrieve_technician",
         "add_bootcamp", "view_bootcamp", "delete_bootcamp", "change_bootcamp", "add_ticket", "view_ticket", "delete_ticket", "change_ticket"])
 
-        if not group.permissions.filter(codename='can_add_headmaster').exists():
-            group.permissions.add(*custom_permissions)
+        for perm in custom_permissions:
+            if not group.permissions.filter(id= perm.id).exists():
+                group.permissions.add(perm)
 
         instance.groups.add(group)
 
     elif instance.is_staff and not instance.is_superuser:
-        group, _ = Group.objects.get_or_create(name='Technicians')
+        group, _ = Group.objects.get_or_create(name='Technicians')\
+        
+        custom_permissions= Permission.objects.filter(codename__in= ["add_responseticket", "view_responseticket", "delete_responseticket", "change_responseticket"])
 
-        if not group.permissions.filter(codename='add_ticket').exists():
-            add_ticket_permission = Permission.objects.get(codename='add_ticket')
-            view_ticket_permission = Permission.objects.get(codename='view_ticket')
-            group.permissions.add(add_ticket_permission, view_ticket_permission)
+        for perm in custom_permissions:
+            if not group.permissions.filter(id= perm.id).exists():
+                group.permissions.add(perm)
 
         instance.groups.add(group)
