@@ -8,6 +8,7 @@ from user.permissions import IsHeadmaster, IsTechnician
 from kavenegar import *
 from django.conf import settings
 from django.http import HttpResponse
+from user.tasks import send_welcome_sms
 
 
 class NewHeadmaster(CreateAPIView):
@@ -71,15 +72,8 @@ class NewUser(CreateAPIView):
         user.save()
 
 class LogIn(APIView):
-    permission_classes= [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
 
     def post(self, request):
-        try:
-            api= KavenegarAPI(settings.KAVENEGAR_API_KEY)
-            params= {'sender': '2000660110', 'receptor': request.user.username, 'message' :'به کلاسور خوش آمدید!' }
-            api.sms_send(params)
-        except APIException as e:
-            return HttpResponse(f"API Exception: {e}")
-
-
+        send_welcome_sms.delay(request.user.username)
         return render(request, 'user_panel/user_panel.html', {'user': request.user})
