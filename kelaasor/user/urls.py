@@ -1,5 +1,5 @@
 from django.urls import path
-from user.views import NewHeadmaster, ListHeadmasters, DeleteHeadmaster, RetrieveHeadmaster, NewTech, DelTech, LsTech, NewUser, LogIn
+from user.views import NewHeadmaster, ListHeadmasters, DeleteHeadmaster, RetrieveHeadmaster, NewTech, DelTech, LsTech, NewUser, LogIn, ListAllUsers
 from rest_framework_simplejwt.views import TokenObtainPairView
 
 urlpatterns = [
@@ -13,4 +13,5 @@ urlpatterns = [
     path('ls-techs', LsTech.as_view()),
     path('sign-up', NewUser.as_view()),
     path('log-in', LogIn.as_view()),
+    path('ls-users', ListAllUsers.as_view()),
 ]

@@ -77,3 +77,9 @@ class LogIn(APIView):
     def post(self, request):
         send_welcome_sms.delay(request.user.username)
         return render(request, 'user_panel/user_panel.html', {'user': request.user})
+
+
+class ListAllUsers(ListAPIView):
+    permission_classes= [IsHeadmaster]
+    queryset= User.objects.all()
+    serializer_class= UserSerializer
