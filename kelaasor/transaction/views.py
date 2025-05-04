@@ -4,6 +4,10 @@ from rest_framework.permissions import IsAuthenticated
 from transaction.models import Wallet, Transaction
 from transaction.serializers import TransactionSerializer
 from django.db.models import F
+from rest_framework.views import APIView
+from user.permissions import IsTechnician
+from django.http import HttpResponse, JsonResponse
+
 
 class Deposite(CreateAPIView):
     permission_classes= [IsAuthenticated]
@@ -11,7 +15,24 @@ class Deposite(CreateAPIView):
     serializer_class= TransactionSerializer
 
     def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
-        Wallet.objects.filter(user=self.request.user).update(
-            balance=F('balance') + serializer.validated_data['amount']
+        wallet, _ = Wallet.objects.get_or_create(user=self.request.user)
+        serializer.save(wallet= wallet, status= 'pending')
+
+
+class AproveTransaction(APIView):
+    permission_classes= [IsTechnician]
+
+    def post(self, request, pk):
+        try:
+            transaction= Transaction.objects.get(pk= pk, status= 'pending')
+        except Transaction.DoesNotExist:
+            return JsonResponse({'message': 'Transaction not found'}, status= 404)
+        
+        transaction.status= 'approved'
+        transaction.save()
+
+        Wallet.objects.filter(pk=transaction.wallet.pk).update(
+            balance=F('balance') + transaction.amount
         )
+
+        return JsonResponse({'message': 'Transaction approved'}, status= 200)
