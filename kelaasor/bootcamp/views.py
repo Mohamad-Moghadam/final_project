@@ -36,17 +36,17 @@ class Enroll(UpdateAPIView):
     queryset= BootCamps.objects.all()
     serializer_class= BootcampSerializer
 
-    def perform_update(self, serializer):
+    def update(self, serializer, *args, **kwargs):
         user= self.request.user
         wallet = user.wallet
-        bootcamp = serializer.instance
+        bootcamp = self.get_object()
+        already_enrolled = bootcamp.students.filter(pk=user.pk).exists()
 
-        if wallet.balance >= bootcamp.price and bootcamp.enrollment_status == True and user not in bootcamp.students.all():
+        if wallet.balance >= bootcamp.price and bootcamp.enrollment_status == True and not already_enrolled:
             bootcamp.students.add(user)
             wallet.balance -= bootcamp.price
             wallet.save()
-            serializer.save()
-            return JsonResponse({"message": "student added to the bootcamp"})
+            return JsonResponse({"message": "student was added to the bootcamp"})
         
         else:
             return JsonResponse({"message": "not enough balance or enrollment is closed for you."})
