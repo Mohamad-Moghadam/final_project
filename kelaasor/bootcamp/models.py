@@ -13,6 +13,9 @@ class BootCamps(models.Model):
     ending_date= models.DateField(blank= True, null= True)
     created_at= models.DateTimeField(auto_now_add= True)
     location= gis_models.PointField(default= Point(35.69967769328554,51.31804375220537))
+    price= models.BigIntegerField()
+    enrollment_status= models.BooleanField(default= True)
+
     class Meta:
         verbose_name= 'Bootcamp'
         verbose_name_plural= 'Bootcamps'
