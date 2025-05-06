@@ -41,7 +41,7 @@ class Enroll(UpdateAPIView):
         wallet = user.wallet
         bootcamp = serializer.instance
 
-        if wallet.balance >= bootcamp.price and bootcamp.enrollment_status == True:
+        if wallet.balance >= bootcamp.price and bootcamp.enrollment_status == True and user not in bootcamp.students.all():
             bootcamp.students.add(user)
             wallet.balance -= bootcamp.price
             wallet.save()
@@ -49,4 +49,4 @@ class Enroll(UpdateAPIView):
             return JsonResponse({"message": "student added to the bootcamp"})
         
         else:
-            return JsonResponse({"message": "not enough balance or enrollment is closed"})
+            return JsonResponse({"message": "not enough balance or enrollment is closed for you."})
