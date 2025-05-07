@@ -50,3 +50,12 @@ class Enroll(UpdateAPIView):
         
         else:
             return JsonResponse({"message": "not enough balance or enrollment is closed for you."})
+
+
+class MyBootcamps(ListAPIView):
+    permission_classes= [IsAuthenticated]
+    serializer_class= BootcampSerializer
+
+    def get_queryset(self):
+        user= self.request.user
+        return BootCamps.objects.filter(students__in=[user])

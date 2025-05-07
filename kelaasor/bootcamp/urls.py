@@ -1,5 +1,5 @@
 from django.urls import path
-from bootcamp.views import LsBootcamps,NewBootcamp, DelBootcamp, EditBootcamp, Enroll
+from bootcamp.views import LsBootcamps,NewBootcamp, DelBootcamp, EditBootcamp, Enroll, MyBootcamps
 
 urlpatterns = [
     path('ls-bootcamps', LsBootcamps.as_view()),
@@ -7,4 +7,5 @@ urlpatterns = [
     path('del-bootcamp/<int:pk>', DelBootcamp.as_view()),
     path('edit-bootcamp/<int:pk>', EditBootcamp.as_view()),
     path('enroll/<int:pk>', Enroll.as_view()),
+    path('my-bootcamps', MyBootcamps.as_view()),
 ]
