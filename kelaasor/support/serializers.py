@@ -12,3 +12,10 @@ class ResponseTicketSerializer(ModelSerializer):
     class Meta:
         model= ResponseTicket
         fields= '__all__'
+
+class TicketAndResponseSerializer(ModelSerializer):
+    responses = ResponseTicketSerializer(many=True, read_only=True)
+    class Meta:
+        model= Ticket
+        fields= '__all__'
+        read_only_fields= ['user']
