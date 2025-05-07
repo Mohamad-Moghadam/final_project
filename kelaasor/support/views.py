@@ -5,6 +5,7 @@ from support.models import Ticket, ResponseTicket
 from support.serializers import TicketSerializer, ResponseTicketSerializer, TicketAndResponseSerializer
 from user.permissions import IsTechnician
 from itertools import chain
+from .tasks import send_informing_SMS
 
 
 class SendTicket(CreateAPIView):
@@ -19,6 +20,11 @@ class Response(CreateAPIView):
     permission_classes= [IsTechnician]
     queryset= ResponseTicket.objects.all()
     serializer_class= ResponseTicketSerializer
+
+    def perform_create(self, serializer):
+        response= serializer.save()
+        phone_number= response.question.user
+        send_informing_SMS.delay(phone_number)
 
 class MyTickets(ListAPIView):
     permission_classes= [IsAuthenticated]

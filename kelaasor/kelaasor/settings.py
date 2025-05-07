@@ -13,6 +13,7 @@ from dotenv import load_dotenv
 from pathlib import Path
 import os
 from datetime import timedelta
+from kombu import Queue
 
 
 load_dotenv()
@@ -32,10 +33,8 @@ KAVENEGAR_API_KEY = os.getenv('KAVENEGAR_API_KEY')
 
 
 CELERY_TASK_QUEUES= {
-    'sms': {
-        'exchange': 'sms',
-        'routing_key_prefix': 'sms'
-    },
+    Queue('welcome_sms'),
+    Queue('informing_sms'),
 }
 
 
