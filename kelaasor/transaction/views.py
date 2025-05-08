@@ -1,8 +1,8 @@
 from django.shortcuts import render
-from rest_framework.generics import CreateAPIView
+from rest_framework.generics import CreateAPIView, ListAPIView
 from rest_framework.permissions import IsAuthenticated
 from transaction.models import Wallet, Transaction
-from transaction.serializers import TransactionSerializer
+from transaction.serializers import TransactionSerializer, WalletSerializer
 from django.db.models import F
 from rest_framework.views import APIView
 from user.permissions import IsTechnician
@@ -36,3 +36,10 @@ class AproveTransaction(APIView):
         )
 
         return JsonResponse({'message': 'Transaction approved'}, status= 200)
+
+class ShowBalance(ListAPIView):
+    permission_classes= [IsAuthenticated]
+    serializer_class= WalletSerializer
+
+    def get_queryset(self):
+        return Wallet.objects.filter(user= self.request.user)
