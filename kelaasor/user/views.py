@@ -81,5 +81,5 @@ class LogIn(APIView):
 
 class ListAllUsers(ListAPIView):
     permission_classes= [IsHeadmaster]
-    queryset= User.objects.all()
+    queryset= User.objects.filter(is_superuser= False, is_staff= False)
     serializer_class= UserSerializer
