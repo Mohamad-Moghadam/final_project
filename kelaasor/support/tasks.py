@@ -3,6 +3,8 @@ from django.conf import settings
 from django.http import HttpResponse
 from celery import shared_task
 
+
+
 @shared_task(queue='informing_sms')
 def send_informing_SMS(receptor):
     try:
