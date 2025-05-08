@@ -7,6 +7,7 @@ from django.db.models import F
 from rest_framework.views import APIView
 from user.permissions import IsTechnician
 from django.http import HttpResponse, JsonResponse
+from user.permissions import IsHeadmaster
 
 
 class Deposite(CreateAPIView):
@@ -43,3 +44,9 @@ class ShowBalance(ListAPIView):
 
     def get_queryset(self):
         return Wallet.objects.filter(user= self.request.user)
+
+
+class LsTransactions(ListAPIView):
+    permission_classes= [IsHeadmaster]
+    serializer_class= TransactionSerializer
+    queryset= Transaction.objects.all()
