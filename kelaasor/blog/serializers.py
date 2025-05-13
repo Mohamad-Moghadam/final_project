@@ -6,3 +6,4 @@ class BlogSerializer(ModelSerializer):
     class Meta:
         model = Blog
         fields = '__all__'
+        read_only_fields= ['author']

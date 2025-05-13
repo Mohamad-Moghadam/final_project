@@ -9,3 +9,6 @@ class NewBlog(CreateAPIView):
     permission_classes= [IsTechnician]
     queryset= Blog.objects.all()
     serializer_class= BlogSerializer
+
+    def perform_create(self, serializer):
+        serializer.save(author= self.request.user)
