@@ -63,7 +63,8 @@ INSTALLED_APPS = [
     'support',
     'bootcamp',
     'django.contrib.gis',
-    'transaction'
+    'transaction',
+    'blog',
 ]
 
 MIDDLEWARE = [
