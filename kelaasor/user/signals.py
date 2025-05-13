@@ -21,7 +21,7 @@ def assign_user_to_groups(sender, instance, created, **kwargs):
         instance.groups.add(group)
 
     elif instance.is_staff and not instance.is_superuser:
-        group, _ = Group.objects.get_or_create(name='Technicians')\
+        group, _ = Group.objects.get_or_create(name='Technicians')
         
         custom_permissions= Permission.objects.filter(codename__in= ["add_responseticket", "view_responseticket", "delete_responseticket", "change_responseticket"])
 
