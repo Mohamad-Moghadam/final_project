@@ -15,6 +15,7 @@ class SendTicket(CreateAPIView):
     
     def perform_create(self, serializer):
         serializer.save(user= self.request.user)
+    
 
 class Response(CreateAPIView):
     permission_classes= [IsTechnician]
