@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework.generics import CreateAPIView, RetrieveAPIView, ListAPIView, UpdateAPIView
+from rest_framework.generics import CreateAPIView, RetrieveAPIView, ListAPIView, UpdateAPIView, DestroyAPIView
 from user.permissions import IsTechnician, IsHeadmaster
 from .models import Blog
 from .serializers import BlogSerializer
@@ -42,3 +42,8 @@ class RetrieveBlog(ListAPIView):
     def get_queryset(self):
         blog_type= self.kwargs.get('type')
         return Blog.objects.filter(type= blog_type)
+
+class DeleteBlog(DestroyAPIView):
+    permission_classes= [IsHeadmaster]
+    queryset= Blog.objects.all()
+    serializer_class= BlogSerializer
