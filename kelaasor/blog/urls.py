@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import NewBlog, PublishedBlogs, ControllBlogs, EditBlog
+from .views import NewBlog, PublishedBlogs, ControllBlogs, EditBlog, RetrieveBlog
 
 
 urlpatterns = [
@@ -7,4 +7,5 @@ urlpatterns = [
     path('show-blogs', PublishedBlogs.as_view()),
     path('controll-blogs', ControllBlogs.as_view()),
     path('edit-blog/<int:pk>', EditBlog.as_view()),
+    path('retrieve-blog/<str:type>', RetrieveBlog.as_view()),
 ]
