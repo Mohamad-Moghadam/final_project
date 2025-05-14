@@ -33,3 +33,12 @@ class EditBlog(UpdateAPIView):
 
     def get_queryset(self):
         return Blog.objects.filter(author= self.request.user)
+
+
+class RetrieveBlog(ListAPIView):
+    permission_classes= [AllowAny]
+    serializer_class= BlogSerializer
+
+    def get_queryset(self):
+        blog_type= self.kwargs.get('type')
+        return Blog.objects.filter(type= blog_type)
