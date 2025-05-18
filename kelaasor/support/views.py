@@ -3,7 +3,7 @@ from rest_framework.generics import CreateAPIView, ListAPIView
 from rest_framework.permissions import IsAuthenticated
 from support.models import Ticket, ResponseTicket
 from support.serializers import TicketSerializer, ResponseTicketSerializer, TicketAndResponseSerializer
-from user.permissions import IsTechnician
+from user.permissions import IsTechnician, IsHeadmaster
 from itertools import chain
 from .tasks import send_informing_SMS
 from django.contrib.auth.models import Group
@@ -52,3 +52,13 @@ class MyTickets(ListAPIView):
     
     def get_serializer_class(self):
         return TicketAndResponseSerializer
+
+class ListTickets(ListAPIView):
+    permission_classes= [IsHeadmaster]
+    queryset= Ticket.objects.all()
+    serializer_class= TicketAndResponseSerializer
+
+    def get_serializer_context(self):
+        context = super().get_serializer_context()
+        context.update({"request": self.request})
+        return context

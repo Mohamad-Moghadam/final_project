@@ -7,6 +7,7 @@ class Ticket(models.Model):
     content= models.TextField()
     user= models.CharField(max_length= 100)
     status= models.CharField(max_length= 100, choices= STATUS, default= 'pending')
+    attachment = models.FileField(upload_to='attachments/', null=True, blank=True)
 
 class ResponseTicket(models.Model):
     question= models.ForeignKey(Ticket, on_delete= models.CASCADE, related_name= 'Response_of_each_ticket')
