@@ -9,6 +9,7 @@ from kavenegar import *
 from django.conf import settings
 from django.http import HttpResponse
 from user.tasks import send_welcome_sms
+from random import randint
 
 
 class NewHeadmaster(CreateAPIView):
@@ -83,3 +84,16 @@ class ListAllUsers(ListAPIView):
     permission_classes= [IsHeadmaster]
     queryset= User.objects.filter(is_superuser= False, is_staff= False)
     serializer_class= UserSerializer
+
+class ForgetPassword(APIView):
+    permission_classes= [AllowAny]
+
+    def post(self, request):
+        user= get_object_or_404(User, username= request.data['username'])
+        try:
+            user.password= str(randint(100000, 999999))
+            api= KavenegarAPI(settings.KAVENEGAR_API_KEY)
+            params= {'sender': '2000660110', 'receptor': user.username, 'message' :'کلمه عبور جدید شما: ' + user.password }
+            api.sms_send(params)
+        except APIException as e:
+            return HttpResponse(f"API Exception: {e}")
