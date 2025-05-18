@@ -6,6 +6,10 @@ from support.serializers import TicketSerializer, ResponseTicketSerializer, Tick
 from user.permissions import IsTechnician
 from itertools import chain
 from .tasks import send_informing_SMS
+from django.contrib.auth.models import Group
+from django.conf import settings
+from django.core.mail import send_mail
+
 
 
 class SendTicket(CreateAPIView):
@@ -14,8 +18,18 @@ class SendTicket(CreateAPIView):
     serializer_class= TicketSerializer
     
     def perform_create(self, serializer):
-        serializer.save(user= self.request.user)
-    
+        ticket= serializer.save(user= self.request.user)
+        technicians = Group.objects.get(name='Technicians').user_set.all()
+        emails = [tech.username for tech in technicians if tech.username]
+
+        if emails:
+            send_mail(
+            subject='تیکت جدید',
+            message=f'یک تیکت جدید توسط {ticket.user} ثبت شده است.',
+            from_email=settings.EMAIL_HOST_USER,
+            recipient_list=emails,
+            fail_silently=False,
+    )
 
 class Response(CreateAPIView):
     permission_classes= [IsTechnician]

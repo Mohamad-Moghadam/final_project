@@ -95,5 +95,6 @@ class ForgetPassword(APIView):
             api= KavenegarAPI(settings.KAVENEGAR_API_KEY)
             params= {'sender': '2000660110', 'receptor': user.username, 'message' :'کلمه عبور جدید شما: ' + user.password }
             api.sms_send(params)
+            return HttpResponse(f"SMS sent successfully to {user.username}")
         except APIException as e:
             return HttpResponse(f"API Exception: {e}")
