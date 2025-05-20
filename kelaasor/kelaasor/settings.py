@@ -78,6 +78,19 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'kelaasor.urls'
 
+
+USER_GROUP_PERMISSIONS = {
+    'Headmaster': [
+        "can_add_headmaster", "can_list_headmasters", "can_delete_headmaster", "can_retrieve_headmaster",
+        "can_add_technician", "can_list_technicians", "can_delete_technician", "can_retrieve_technician",
+        "add_bootcamp", "view_bootcamp", "delete_bootcamp", "change_bootcamp",
+        "add_ticket", "view_ticket", "delete_ticket", "change_ticket"
+    ],
+    'Technicians': [
+        "add_responseticket", "view_responseticket", "delete_responseticket", "change_responseticket"
+    ]
+}
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
