@@ -115,7 +115,8 @@ WSGI_APPLICATION = 'kelaasor.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        """'ENGINE': 'django.contrib.gis.db.backends.postgis',"""
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': os.getenv('DB_NAME'),
         'USER': os.getenv('DB_USER'),
         'PASSWORD': os.getenv('DB_PASSWORD'),
