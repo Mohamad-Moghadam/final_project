@@ -19,3 +19,7 @@ class BootCamps(models.Model):
     class Meta:
         verbose_name= 'Bootcamp'
         verbose_name_plural= 'Bootcamps'
+
+class BootcampRequest(models.Model):
+    user= models.ForeignKey(User, on_delete= models.PROTECT, related_name= "user_that_asked_for_enrollment")
+    bootcamp= models.ForeignKey(BootCamps, on_delete= models.PROTECT)

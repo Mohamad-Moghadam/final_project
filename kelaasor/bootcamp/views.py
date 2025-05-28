@@ -1,13 +1,21 @@
 from django.shortcuts import render
 from rest_framework.generics import ListAPIView, CreateAPIView, DestroyAPIView, UpdateAPIView
 from rest_framework.permissions import AllowAny
-from bootcamp.models import BootCamps
-from bootcamp.serializers import BootcampSerializer
-from user.permissions import IsHeadmaster
+from bootcamp.models import BootCamps, BootcampRequest
+from bootcamp.serializers import BootcampSerializer, BootcampRequestSerializer
+from user.permissions import IsHeadmaster, IsTechnician
 from rest_framework.permissions import IsAuthenticated
 from .models import BootCamps
 from datetime import datetime
 from django.http import JsonResponse
+from django.shortcuts import get_object_or_404
+from rest_framework.response import Response
+from django.contrib.auth.models import Group, User
+from rest_framework import status
+from django.core.mail import send_mail
+from django.conf import settings
+from transaction.models import Wallet
+
 
 
 class LsBootcamps(ListAPIView):
@@ -31,26 +39,48 @@ class EditBootcamp(UpdateAPIView):
     serializer_class= BootcampSerializer
 
 
-class Enroll(UpdateAPIView):
+class SignInBootCamp(CreateAPIView):
     permission_classes= [IsAuthenticated]
+    queryset= BootcampRequest.objects.all()
+    serializer_class= BootcampRequestSerializer
+
+    def perform_create(self, serializer):
+        bootcamp_request = serializer.save(user = self.request.user)
+        technicians = Group.objects.get(name='Technicians').user_set.all()
+        emails = [tech.username for tech in technicians]
+
+        if emails:
+            send_mail(
+                subject = "درخاست جدید ثبت نام در بوتکمپ",
+                message = f"یک درخاست جدید ثبت نام در باتکمپ ثبت شده است. لطفا درخاست را بررسی کنید.",
+                from_email = settings.EMAIL_HOST_USER,
+                recipient_list = emails,
+                fail_silently = False,
+            )
+
+class EnrollmentApproval(UpdateAPIView):
+    permission_classes= [IsTechnician]
     queryset= BootCamps.objects.all()
     serializer_class= BootcampSerializer
 
-    def update(self, serializer, *args, **kwargs):
-        user= self.request.user
-        wallet = user.wallet
+    def update(self, request, *args, **kwargs):
+        username = request.data.get("username")
+        if not username:
+            return Response({"message": "Username is required."}, status=status.HTTP_400_BAD_REQUEST)
+
+        user = get_object_or_404(User, username=username)
+        wallet, _ = Wallet.objects.get_or_create(user=user)
+
         bootcamp = self.get_object()
         already_enrolled = bootcamp.students.filter(pk=user.pk).exists()
 
-        if wallet.balance >= bootcamp.price and bootcamp.enrollment_status == True and not already_enrolled:
+        if wallet.balance >= bootcamp.price and bootcamp.enrollment_status and not already_enrolled:
             bootcamp.students.add(user)
             wallet.balance -= bootcamp.price
             wallet.save()
-            return JsonResponse({"message": "student was added to the bootcamp"})
-        
+            return Response({"message": f"{username} was enrolled successfully."})
         else:
-            return JsonResponse({"message": "not enough balance or enrollment is closed for you."})
-
+            return Response({"message": "Not enough balance, enrollment is closed, or user is already enrolled."}, status=status.HTTP_400_BAD_REQUEST)
 
 class MyBootcamps(ListAPIView):
     permission_classes= [IsAuthenticated]
