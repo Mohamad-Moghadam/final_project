@@ -51,7 +51,7 @@ class SignInBootCamp(CreateAPIView):
 
         if emails:
             send_mail(
-                subject = "درخاست جدید ثبت نام در بوتکمپ",
+                subject = "درخواست جدید ثبت نام در بوتکمپ",
                 message = f"یک درخاست جدید ثبت نام در باتکمپ ثبت شده است. لطفا درخاست را بررسی کنید.",
                 from_email = settings.EMAIL_HOST_USER,
                 recipient_list = emails,
