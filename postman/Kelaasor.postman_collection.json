@@ -1,0 +1,1232 @@
+{
+	"info": {
+		"_postman_id": "312b2d40-0579-4d04-aa0b-3ba7fed7a29c",
+		"name": "Kelaasor",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42911762"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "get-token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"Admin\",\n    \"password\": \"9999\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/user/get-token",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"get-token"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get-token",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"technician\",\n    \"password\": \"9999\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/user/get-token",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"user",
+										"get-token"
+									]
+								}
+							},
+							"_postman_previewlanguage": "",
+							"header": [],
+							"cookie": [
+								{
+									"expires": "Invalid Date"
+								}
+							],
+							"body": ""
+						},
+						{
+							"name": "get-token",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"09210362361\",\n    \"password\": \"9999\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/user/get-token",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"user",
+										"get-token"
+									]
+								}
+							},
+							"_postman_previewlanguage": "",
+							"header": [],
+							"cookie": [
+								{
+									"expires": "Invalid Date"
+								}
+							],
+							"body": ""
+						},
+						{
+							"name": "get-token",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"Admin\",\n    \"password\": \"9999\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/user/get-token",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"user",
+										"get-token"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "new-headmaster",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5MjgzNTEyLCJpYXQiOjE3NDY2OTE1MTIsImp0aSI6ImRlOThhMmU2YzcyYzRlMjBiZDAyZmE4MmFkNGZmZGU1IiwidXNlcl9pZCI6MX0.7Ux4TGQnlyRzNXmYJx4JaXsLTEJnxBQMWhDD-84q6xI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"Admin2\",\n    \"password\": \"9999\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/user/new-headmaster",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"new-headmaster"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ls-headmasters",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "ls-headmasters",
+							"originalRequest": {
+								"method": "GET",
+								"header": []
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "del-headmaster",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5Mjg0Mzc4LCJpYXQiOjE3NDY2OTIzNzgsImp0aSI6IjFjZTgzMWVhZmM0NzQyZjY4YjM1Y2JlNmIwZDA2N2E4IiwidXNlcl9pZCI6NH0.s2_MDf9PX_-RIfhjqEse8EVS1NrnlLUjMUYdWt0tMwQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/user/del-headmaster/4",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"del-headmaster",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "retrieve-headmaster",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5MjgzNTEyLCJpYXQiOjE3NDY2OTE1MTIsImp0aSI6ImRlOThhMmU2YzcyYzRlMjBiZDAyZmE4MmFkNGZmZGU1IiwidXNlcl9pZCI6MX0.7Ux4TGQnlyRzNXmYJx4JaXsLTEJnxBQMWhDD-84q6xI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/user/retrieve-headmaster/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"retrieve-headmaster",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "new-tech",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5MjgzNTEyLCJpYXQiOjE3NDY2OTE1MTIsImp0aSI6ImRlOThhMmU2YzcyYzRlMjBiZDAyZmE4MmFkNGZmZGU1IiwidXNlcl9pZCI6MX0.7Ux4TGQnlyRzNXmYJx4JaXsLTEJnxBQMWhDD-84q6xI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"technician2\",\n    \"password\": \"9999\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/user/new-tech",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"new-tech"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "del-tech",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5MjgzNTEyLCJpYXQiOjE3NDY2OTE1MTIsImp0aSI6ImRlOThhMmU2YzcyYzRlMjBiZDAyZmE4MmFkNGZmZGU1IiwidXNlcl9pZCI6MX0.7Ux4TGQnlyRzNXmYJx4JaXsLTEJnxBQMWhDD-84q6xI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/user/del-tech/5",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"del-tech",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ls-techs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5MjgzNTEyLCJpYXQiOjE3NDY2OTE1MTIsImp0aSI6ImRlOThhMmU2YzcyYzRlMjBiZDAyZmE4MmFkNGZmZGU1IiwidXNlcl9pZCI6MX0.7Ux4TGQnlyRzNXmYJx4JaXsLTEJnxBQMWhDD-84q6xI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/user/ls-techs",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"ls-techs"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sign-up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"user\",\n    \"password\": \"9999\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/user/sign-up",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"sign-up"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "log-in",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5Mjg2ODkyLCJpYXQiOjE3NDY2OTQ4OTIsImp0aSI6ImZiZWIzNzkzMDQzYzQxZjlhNzAwZjNmOTA1YTUwMzA1IiwidXNlcl9pZCI6Mn0.1ANyktcAT8unr1UlksMBYm8VfVzOIutfNb8-E0nydHY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"09210362361\",\n    \"password\": \"9999\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/user/log-in",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"log-in"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ls-users",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "forget-password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5MjgzNTEyLCJpYXQiOjE3NDY2OTE1MTIsImp0aSI6ImRlOThhMmU2YzcyYzRlMjBiZDAyZmE4MmFkNGZmZGU1IiwidXNlcl9pZCI6MX0.7Ux4TGQnlyRzNXmYJx4JaXsLTEJnxBQMWhDD-84q6xI",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/user/forget-password",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"forget-password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transaction",
+			"item": [
+				{
+					"name": "deposite",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5Mjg5NDk0LCJpYXQiOjE3NDY2OTc0OTQsImp0aSI6IjEyYTQ1MWQxNTFiMjQ2Y2Q5YzE0NzYyYjlmYTUzZThkIiwidXNlcl9pZCI6Mn0.hMzt5nIlaoZz40SPuTmjWwmG80v1ZtnMkEgULyAjqHc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\": 1500,\n    \"description\": \"back-end purchase\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/transaction/deposite",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"transaction",
+								"deposite"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "approve-transaction",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5Mjg5ODEwLCJpYXQiOjE3NDY2OTc4MTAsImp0aSI6ImM2ZGMwZmYzYjZkMDQ4NDk4ZWMwNjExNzM5NmFjZWQ3IiwidXNlcl9pZCI6M30.pjlt0QfzhNJv8bRF1B79H7LrPPEH1MFSH0blpvLII28",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/transaction/approve-transaction/4",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"transaction",
+								"approve-transaction",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ls-balance",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5Mjg5NDk0LCJpYXQiOjE3NDY2OTc0OTQsImp0aSI6IjEyYTQ1MWQxNTFiMjQ2Y2Q5YzE0NzYyYjlmYTUzZThkIiwidXNlcl9pZCI6Mn0.hMzt5nIlaoZz40SPuTmjWwmG80v1ZtnMkEgULyAjqHc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/transaction/ls-balance",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"transaction",
+								"ls-balance"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ls-transactions",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5MjgzNTEyLCJpYXQiOjE3NDY2OTE1MTIsImp0aSI6ImRlOThhMmU2YzcyYzRlMjBiZDAyZmE4MmFkNGZmZGU1IiwidXNlcl9pZCI6MX0.7Ux4TGQnlyRzNXmYJx4JaXsLTEJnxBQMWhDD-84q6xI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/transaction/ls-transactions",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"transaction",
+								"ls-transactions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "my-transactions",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5MjgzNTEyLCJpYXQiOjE3NDY2OTE1MTIsImp0aSI6ImRlOThhMmU2YzcyYzRlMjBiZDAyZmE4MmFkNGZmZGU1IiwidXNlcl9pZCI6MX0.7Ux4TGQnlyRzNXmYJx4JaXsLTEJnxBQMWhDD-84q6xI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/transaction/my-transactions",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"transaction",
+								"my-transactions"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Suppport",
+			"item": [
+				{
+					"name": "send-ticket",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5MjkwNDQ3LCJpYXQiOjE3NDY2OTg0NDcsImp0aSI6IjM0YTRlZjhiMzg1YzQ5Mzk5MWJlMmJiNGRlM2VlOTY3IiwidXNlcl9pZCI6Mn0.R7SW2ksqATWrLsm_YFiXlAsBuVdb3tH3IKnD2Bt4weo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Purchase issue\",\n    \"content\": \"I bought this package but didn't recieve it\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/support/send-ticket",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"support",
+								"send-ticket"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "send-response",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5Mjg5ODEwLCJpYXQiOjE3NDY2OTc4MTAsImp0aSI6ImM2ZGMwZmYzYjZkMDQ4NDk4ZWMwNjExNzM5NmFjZWQ3IiwidXNlcl9pZCI6M30.pjlt0QfzhNJv8bRF1B79H7LrPPEH1MFSH0blpvLII28",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"question\": 3,\n    \"content\": \"tell me about it\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/support/send-response",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"support",
+								"send-response"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "my-tickets",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5MjkwNDQ3LCJpYXQiOjE3NDY2OTg0NDcsImp0aSI6IjM0YTRlZjhiMzg1YzQ5Mzk5MWJlMmJiNGRlM2VlOTY3IiwidXNlcl9pZCI6Mn0.R7SW2ksqATWrLsm_YFiXlAsBuVdb3tH3IKnD2Bt4weo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/support/my-tickets",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"support",
+								"my-tickets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all-tickets",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUwMTY2NDUwLCJpYXQiOjE3NDc1NzQ0NTAsImp0aSI6IjdlMTNkMTA0ZDg2OTQwMGZhMDljYzE0YzgzYTEyMDgwIiwidXNlcl9pZCI6MX0.5i_QfAGC1srJytIQWAVzDWJRDIp-SJO2FmVkHNsUzLE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Purchase issue\",\n    \"content\": \"I bought this package but didn't recieve it\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/support/all-tickets",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"support",
+								"all-tickets"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bootcamp",
+			"item": [
+				{
+					"name": "ls-bootcamps",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/bootcamp/ls-bootcamps",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"bootcamp",
+								"ls-bootcamps"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "new-bootcamp",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5MjgzNTEyLCJpYXQiOjE3NDY2OTE1MTIsImp0aSI6ImRlOThhMmU2YzcyYzRlMjBiZDAyZmE4MmFkNGZmZGU1IiwidXNlcl9pZCI6MX0.7Ux4TGQnlyRzNXmYJx4JaXsLTEJnxBQMWhDD-84q6xI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Back-End\",\n    \"description\": \"new bootcamp for django\",\n    \"price\": 1600,\n    \"teachers\": [1, 2],\n    \"students\": [3]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/bootcamp/new-bootcamp",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"bootcamp",
+								"new-bootcamp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "del-bootcamp",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5MjgzNTEyLCJpYXQiOjE3NDY2OTE1MTIsImp0aSI6ImRlOThhMmU2YzcyYzRlMjBiZDAyZmE4MmFkNGZmZGU1IiwidXNlcl9pZCI6MX0.7Ux4TGQnlyRzNXmYJx4JaXsLTEJnxBQMWhDD-84q6xI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/bootcamp/del-bootcamp/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"bootcamp",
+								"del-bootcamp",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit-bootcamp",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5MjgzNTEyLCJpYXQiOjE3NDY2OTE1MTIsImp0aSI6ImRlOThhMmU2YzcyYzRlMjBiZDAyZmE4MmFkNGZmZGU1IiwidXNlcl9pZCI6MX0.7Ux4TGQnlyRzNXmYJx4JaXsLTEJnxBQMWhDD-84q6xI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"students\": [1]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/bootcamp/edit-bootcamp/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"bootcamp",
+								"edit-bootcamp",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "enrollment-approval",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5Mjg2ODkyLCJpYXQiOjE3NDY2OTQ4OTIsImp0aSI6ImZiZWIzNzkzMDQzYzQxZjlhNzAwZjNmOTA1YTUwMzA1IiwidXNlcl9pZCI6Mn0.1ANyktcAT8unr1UlksMBYm8VfVzOIutfNb8-E0nydHY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/bootcamp/enroll/2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"bootcamp",
+								"enroll",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "my-bootcamps",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5Mjg2ODkyLCJpYXQiOjE3NDY2OTQ4OTIsImp0aSI6ImZiZWIzNzkzMDQzYzQxZjlhNzAwZjNmOTA1YTUwMzA1IiwidXNlcl9pZCI6Mn0.1ANyktcAT8unr1UlksMBYm8VfVzOIutfNb8-E0nydHY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/bootcamp/my-bootcamps",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"bootcamp",
+								"my-bootcamps"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sign-in-bootcamp",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Blog",
+			"item": [
+				{
+					"name": "add-blog",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5Mjg5ODEwLCJpYXQiOjE3NDY2OTc4MTAsImp0aSI6ImM2ZGMwZmYzYjZkMDQ4NDk4ZWMwNjExNzM5NmFjZWQ3IiwidXNlcl9pZCI6M30.pjlt0QfzhNJv8bRF1B79H7LrPPEH1MFSH0blpvLII28",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/blog/add-blog",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"blog",
+								"add-blog"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show-blogs",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5MjgzNTEyLCJpYXQiOjE3NDY2OTE1MTIsImp0aSI6ImRlOThhMmU2YzcyYzRlMjBiZDAyZmE4MmFkNGZmZGU1IiwidXNlcl9pZCI6MX0.7Ux4TGQnlyRzNXmYJx4JaXsLTEJnxBQMWhDD-84q6xI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"students\": [1]\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/blog/show-blogs",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"blog",
+								"show-blogs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "controll-blogs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5ODI2ODY4LCJpYXQiOjE3NDcyMzQ4NjgsImp0aSI6IjFhNjViMzczMjRjYTRkNjJiYTU3YTU3MmQzZDM4ZGY4IiwidXNlcl9pZCI6MX0.sagj9tvWSjIOjIZVYQq1VWxlKrq68l-rslCn2DY9pzw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/blog/controll-blogs",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"blog",
+								"controll-blogs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit-blog",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5Mjg5ODEwLCJpYXQiOjE3NDY2OTc4MTAsImp0aSI6ImM2ZGMwZmYzYjZkMDQ4NDk4ZWMwNjExNzM5NmFjZWQ3IiwidXNlcl9pZCI6M30.pjlt0QfzhNJv8bRF1B79H7LrPPEH1MFSH0blpvLII28",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/blog/edit-blog/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"blog",
+								"edit-blog",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "retrieve-blog",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5Mjg5ODEwLCJpYXQiOjE3NDY2OTc4MTAsImp0aSI6ImM2ZGMwZmYzYjZkMDQ4NDk4ZWMwNjExNzM5NmFjZWQ3IiwidXNlcl9pZCI6M30.pjlt0QfzhNJv8bRF1B79H7LrPPEH1MFSH0blpvLII28",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"2\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/blog/retrieve-blog/2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"blog",
+								"retrieve-blog",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-blog",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ5ODI2ODY4LCJpYXQiOjE3NDcyMzQ4NjgsImp0aSI6IjFhNjViMzczMjRjYTRkNjJiYTU3YTU3MmQzZDM4ZGY4IiwidXNlcl9pZCI6MX0.sagj9tvWSjIOjIZVYQq1VWxlKrq68l-rslCn2DY9pzw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"2\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/blog/delete-blog/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"blog",
+								"delete-blog",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
