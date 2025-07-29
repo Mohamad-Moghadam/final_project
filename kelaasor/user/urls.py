@@ -18,6 +18,6 @@ urlpatterns = [
     path('forget-password', ForgetPassword.as_view()),
     path("user/you/edit/", EditAccountView.as_view(), name="edit-user-account"),
     path("user/you/detail/", DetailAccountView.as_view(), name="user-detail-account"),
-    path("user/you/logout/", LogOutVeiw.as_view())
+    path("user/you/logout/", LogOutVeiw.as_view(), name="user-logout")
 
 ]
