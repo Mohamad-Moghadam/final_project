@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.models import User, Group
-from rest_framework.generics import CreateAPIView, RetrieveAPIView, ListAPIView, DestroyAPIView
+from rest_framework.generics import CreateAPIView, RetrieveAPIView, ListAPIView, DestroyAPIView, UpdateAPIView
 from rest_framework.permissions import BasePermission, AllowAny, IsAuthenticated
 from user.serializers import UserSerializer
 from rest_framework.views import APIView
@@ -10,8 +10,9 @@ from django.conf import settings
 from django.http import HttpResponse
 from user.tasks import send_welcome_sms
 from random import randint
-
-
+from rest_framework.response import Response
+from rest_framework_simplejwt.tokens import RefreshToken
+from .throttles import *
 class NewHeadmaster(CreateAPIView):
     permission_classes= [IsHeadmaster]
     queryset= User.objects.all()
@@ -98,3 +99,45 @@ class ForgetPassword(APIView):
             return HttpResponse(f"SMS sent successfully to {user.username}")
         except APIException as e:
             return HttpResponse(f"API Exception: {e}")
+
+
+
+
+
+class EditAccountView(UpdateAPIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = UserSerializer
+
+    """کاربر فقط میتونه اکانت خودش رو ادیت کنه """
+    def get_object(self):
+        return self.request.user
+
+
+
+
+class DetailAccountView(RetrieveAPIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = UserSerializer
+
+    """کاربر فقط اکانت خودش رو میتونه ببینه """
+    def get_object(self):
+        return self.request.user
+    
+
+
+
+class LogOutVeiw(APIView):
+    permission_classes = [IsAuthenticated]
+    throttle_classes = [UserLogOutThrottle]
+
+    def post(self, request):
+        refresh_token = request.data.get('refresh_token')
+        if not refresh_token:
+            return Response({"detail":"Refresh token is required"}, status=400)
+        
+        try:
+            token = RefreshToken(refresh_token)
+            token.blacklist()
+            return Response({"detail", "User Logged Out Successfully"})
+        except Exception:
+            return Response({"detail":"Error during logout, please try again later."}, status=500)
